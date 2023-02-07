@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    
+</head>
+
+<body>
+
+    <!-- Navbar (sit on top) -->
+    <div class="w3-top">
+        <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+            <a href="#home" class="w3-bar-item w3-button"><a class="navbar-brand" href="#home">
+                    <img src=".\assets\img\riam-logo.png" href="#home" alt="" width="40" height="40">
+                    VIỆN NGHIÊN CỨU QUẢN LÝ HÀNH CHÍNH
+                </a></a>
+            <!-- Float links to the right. Hide them on small screens -->
+            <div class="w3-right w3-hide-small">
+                <a href="#about" class="w3-bar-item w3-button">Giới Thiệu</a>
+                <a href="#chuyennganh" class="w3-bar-item w3-button">Chuyên Ngành</a>
+                <a href="#contact" class="w3-bar-item w3-button">Liên Lạc</a>
+                <a [routerLink]="['/login']" class="w3-bar-item w3-button">Quản trị</a>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <!-- Header -->
+    <header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"
+                    aria-label="Slide 4"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4"
+                    aria-label="Slide 5"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="5"
+                    aria-label="Slide 6"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <a href="#contact"><img src=".\assets\img\baner-riam-1.jpg" class="d-block w-100" alt="..."></a>
+                </div>
+                <div class="carousel-item">
+                    <a href="#contact"><img src=".\assets\img\banner-tuyen-sinh-2022.jpg" class="d-block w-100" alt="..."></a>
+                </div>
+                <div class="carousel-item">
+                    <a href="#contact"><img src=".\assets\img\banner-duoc-hoc-2022.jpg" class="d-block w-100" alt="..."></a>
+                </div>
+                <div class="carousel-item">
+                    <a href="#contact"><img src=".\assets\img\banner-riam-mam-non-2.jpg" class="d-block w-100" alt="..."></a>
+                </div>
+                <div class="carousel-item">
+                    <a href="#contact"><img src=".\assets\img\banner-dieu-duong.jpg" class="d-block w-100" alt="..."></a>
+                </div>
+                <div class="carousel-item">
+                    <a href="#contact"><img src=".\assets\img\banner-su-pham-tieng-anh.jpg" class="d-block w-100" alt="..."></a>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Page content -->
+    <div class="w3-content w3-padding" style="max-width:1564px">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+      
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+        <!-- About Section -->
+        <div class="w3-container w3-padding-32" id="about">
+            <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">VỀ RIAM: TẦM NHÌN VÀ GIÁ TRỊ CỐT LÕI</h3>
+            <p class="w3-left">Đơn vị thành lập từ năm 2013, Viện Nghiên Cứu Quản Lý Hành Chính có trụ sở chính tại
+                TPHCM. Nhiệm vụ
+                chính nghiên cứu phát triển quản lý hành chính nhà nước; tổ chức, doanh nghiệp phục vụ phát triển kinh
+                tế và Đào tạo.
+                Chương trình đào tạo gồm những khóa đào tạo chứng từ thời gian ngắn sơ cấp. Đào tạo dài hạn những bậc
+                tầm trung, cao đẳng, ĐH và sau đại học. Với gần 10 năm xây dựng và từng ngày càng triển khai xong tăng
+                trưởng hơn. Đơn vị luôn tự hào mình là một trong những Văn phòng tuyển sinh, đào tạo Uy tín, Hiệu quả
+                tại khu vực phía nam .
+                Học viên luôn là giá trị cơ bản, cốt lõi của bất kỳ trung tâm tư vấn tuyển sinh, đào tạo nào. Chính sách
+                “ lấy học viên là trung tâm ” luôn được đơn vị chức năng chăm sóc số 1. Đơn vị lắng nghe, nghiên cứu và
+                phân tích và đồng cảm nhu yếu của từng thí sinh và tích góp, vận dụng kinh nghiệm tay nghề, kỹ năng và
+                kiến thức, tư duy của mình để xử lý tối ưu những nhu yếu đó
+            </p>
+            <div class="w3-row-padding">
+                <div class="w3-col l3 m6 w3-margin-bottom">
+                    <div class="w3-display-container">
+                        <a href="#contact"><img src=".\assets\img\WHY1.jpeg"href="#contact" alt="House" style="width:100%"></a>
+                    </div>
+                </div>
+                <div class="w3-col l3 m6 w3-margin-bottom">
+                    <div class="w3-display-container">
+                        <a href="#contact"><img src=".\assets\img\WHY2.png"href="#contact" alt="House" style="width:100%"></a>
+                    </div>
+                </div>
+                <div class="w3-col l3 m6 w3-margin-bottom">
+                    <div class="w3-display-container">
+                        <a href="#contact"><img src=".\assets\img\WHY3.png"href="#contact" alt="House" style="width:100%"></a>
+                    </div>
+                </div>
+                <div class="w3-col l3 m6 w3-margin-bottom">
+                    <div class="w3-display-container">
+                        <a href="#contact"><img src=".\assets\img\WHY5.png"href="#contact" alt="House" style="width:100%"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Project Section -->
+        <!-- <div class="w3-container w3-padding-32" id="tuyensinh">
+            <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">TUYỂN SINH</h3>
+
+            <div class="w3-row-padding">
+                <div class="w3-col l3 m6 w3-margin-bottom">
+                    <div class="w3-display-container">
+                        <a href="#contact"><img src=".\assets\img\tuyensinh1.PNG"href="#contact" alt="House" style="width:100%"></a>
+                    </div>
+                </div>
+                <div class="w3-col l3 m6 w3-margin-bottom">
+                    <div class="w3-display-container">
+                        <a href="#contact"><img src=".\assets\img\tuyensinh2.PNG"href="#contact" alt="House" style="width:100%"></a>
+                    </div>
+                </div>
+                <div class="w3-col l3 m6 w3-margin-bottom">
+                    <div class="w3-display-container">
+                        <a href="#contact"><img src=".\assets\img\tuyensinh3.PNG"href="#contact" alt="House" style="width:100%"></a>
+                    </div>
+                </div>
+                <div class="w3-col l3 m6 w3-margin-bottom">
+                    <div class="w3-display-container">
+                        <a href="#contact"><img src=".\assets\img\tuyensinh4.PNG"href="#contact" alt="House" style="width:100%"></a>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <!-- khoahoc -->
+        <div class="w3-container w3-padding-32" id="chuyennganh">
+            <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">CHUYÊN NGÀNH ĐÀO TẠO</h3>
+            <div class="w3-row-padding w3-grayscale">
+                <div class="w3-col l3 m6 w3-margin-bottom">
+                    <a href="#contact"><img src=".\assets\img\kids-in-classroom.jpg"href="#contact" alt="John" style="width:100%" height="200"></a>
+                    <h3>SƯ PHẠM</h3>
+                    <p class="w3-opacity"></p>
+                    <pre>
+    - Giáo dục mầm non
+
+    - Giáo dục tiểu học
+
+    - Giáo dục mỹ thuật
+
+    - Giáo dục toán học
+
+    - Sư phạm tiếng Anh
+                    </pre>
+                    <p><a href="#contact"><button class="w3-button w3-light-grey w3-block" href="#contact">Contact</button></a></p>
+                </div>
+                <div class="w3-col l3 m6 w3-margin-bottom">
+                    <a href="#contact"><img src=".\assets\img\doctor_117169531.jpg"href="#contact" alt="Jane" style="width:100%" height="200"></a>
+                    <h3>SỨC KHỎE</h3>
+                    <p class="w3-opacity"></p>
+                    <pre>
+    - Điều Dưỡng
+
+    - Dược học
+
+
+
+
+
+
+                    </pre>
+                    <p><a href="#contact"><p><button class="w3-button w3-light-grey w3-block" href="#contact">Contact</button></a></p>
+                </div>
+                <div class="w3-col l3 m6 w3-margin-bottom">
+                    <a href="#contact"><img src=".\assets\img\economy.jpg"href="#contact" alt="Mike" style="width:100%" height="200"></a>
+                    <h3>KINH TẾ-QUẢN TRỊ</h3>
+                    <p class="w3-opacity"></p>
+                    <pre>
+    - Xây dựng
+
+    - Luật Kinh Tế
+
+    - Ngôn Ngữ Anh
+
+    - Công Nghệ Thông Tin
+
+    - Quản Trị Văn Phòng
+                    </pre>
+                    <p><a href="#contact"><button class="w3-button w3-light-grey w3-block" href="#contact">Contact</button></a></p>
+                </div>
+                <div class="w3-col l3 m6 w3-margin-bottom">
+                    <a href="#contact"><img src=".\assets\img\chung-chi.jpg" href="#contact" alt="Mike" style="width:100%" height="200"></a>
+                    <h3>CHỨNG CHỈ NGẮN HẠN</h3>
+                    <p class="w3-opacity"></p>
+                    <pre>
+    - Nghiệp vụ Sư phạm Cao đẳng, Đại học
+
+    - Nghiệp vụ Sư phạm dạy Tiểu học
+
+    - Nghiệp vụ Sư phạm dạy Mầm non
+
+    - Nghiệp vụ Sư phạm dạy THCS, THPT
+
+    - Chứng chỉ Cấp dưỡng mầm non
+                    </pre>
+                    <p><a href="#contact"><button class="w3-button w3-light-grey w3-block" href="#contact">Contact</button></a></p>
+                </div>                
+            </div>
+        </div>
+        <!-- Contact Section -->
+        <div class="w3-container w3-padding-64 w3-theme-l5" id="contact">
+            <div class="w3-row">
+              <div class="w3-col m5">
+              <div class="w3-padding-16"><span class="w3-xlarge w3-border-teal w3-bottombar">THÔNG TIN LIÊN LẠC</span></div>
+                <h3>Địa chỉ</h3>
+                <p></p>
+                <p><i class="fa fa-map-marker w3-text-teal w3-xlarge"></i>236 Lê Văn Sỹ, Phường 1, Tân Bình, Thành phố Hồ Chí Minh</p>
+                <p><i class="fa fa-phone w3-text-teal w3-xlarge"></i>+01515151515</p>
+                <p><i class="fa fa-envelope-o w3-text-teal w3-xlarge"></i>riam@gmail.com</p>
+              </div>
+              <div class="w3-col m7">
+                <form class="w3-container w3-card-4 w3-padding-16 w3-white" action="/action_page.php" target="_blank">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.2002665388322!2d106.66639972948968!3d10.795968279292103!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3175292e79f1e72f%3A0xae118f87eef3dca1!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBUw6BpIG5ndXnDqm4gdsOgIE3DtGkgdHLGsOG7nW5nIFRQLkhDTQ!5e0!3m2!1svi!2sus!4v1670701367958!5m2!1svi!2sus" width="720" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="w3-container w3-padding-32">
+            <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Liên hệ</h3>
+            <p></p>
+            <form #addForm="ngForm" (ngSubmit)="onAddMess(addForm)">
+                <div class="form-group"><label for="name">Tên của bạn?</label><input class="form-control" class="w3-input w3-border" type="text" placeholder="Name" ngModel id="name" required name="name"></div>
+                <div class="form-group"><label for="gmail">Gmail</label><input class="form-control" class="w3-input w3-section w3-border" type="text" placeholder="Email" required ngModel id="gmail" name="gmail"></div>
+                <div class="form-group"><label for="chuyennganh">Đăng kí ngành học</label><input class="form-control" class="w3-input w3-section w3-border" type="text" placeholder="Đăng kí ngành học" required ngModel id="chuyennganh" name="chuyennganh"></div>
+                <div class="form-group"><label for="tinnhan">Lời nhắn</label><input class="form-control" class="w3-input w3-section w3-border" type="text" placeholder="Nhập Lời nhắn" required ngModel id="tinnhan" name="tinnhan"></div>
+                <button class="w3-button w3-black w3-section" [disabled]="addForm.invalid" type="submit"
+              class="btn btn-primary">
+            <i class="fa fa-paper-plane"></i> Gửi lời nhắn
+              </button>
+            </form>
+        </div>
+        <!-- End page content -->
+    </div>
+    <footer class="w3-container w3-padding-32 w3-theme-d1 w3-center">
+        <div style="position:relative;bottom:100px;z-index:1;" class="w3-tooltip w3-right">
+          <span class="w3-text w3-padding w3-teal w3-hide-small">Go To Top</span>   
+          <a class="w3-button w3-theme" href="#home"><span class="w3-xlarge">
+          <i class="fa fa-chevron-circle-up"></i></span></a>
+        </div>
+      </footer>
+</body>
+
+</html>

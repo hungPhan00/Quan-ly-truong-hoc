@@ -1,0 +1,138 @@
+<section class="vh-100" class="container" id="maincontainer">
+  <div class="container py-5 h-100">
+    <div class="row d-flex align-items-center justify-content-center h-100">
+      <div class="col-md-8 col-lg-7 col-xl-6">
+        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
+          class="img-fluid" alt="Phone image">
+      </div>
+      <div class="col-md-5 col-lg-5 col-xl-5 offset-xl-1">
+        <form [formGroup]="loginForm" (ngSubmit)="login()" >
+          <div class="col-md-6 col-lg-5 d-none d-md-block">
+            <a href="" class="simple-text logo-mini">
+              <div class="logo-image-small">
+                <img src=".\assets\img\riam-logo.png" />
+              </div>
+            </a>
+          </div>
+          <h2><strong>Đăng nhập Quản trị viên</strong></h2>
+          <div class="form-floating mb-4">
+            <label for="floatingInput">Tài Khoản</label>
+            <input formControlName="taikhoan" type="email" class="form-control" id="floatingInput" placeholder="Nhập Tài Khoản">
+            <br>
+            <span class="text-danger" *ngIf="(loginForm.controls['taikhoan'].dirty || loginForm.controls['taikhoan'].touched) && loginForm.hasError('required','taikhoan') ">*Yêu cầu nhập tài khoản</span>
+          </div>
+          <div class="form-floating">
+            <label for="floatingPassword">Mật khẩu</label>
+            <input formControlName="matkhau" type="password" class="form-control" id="floatingPassword" placeholder="Nhập Mật khẩu">
+            <br>
+            <span class="text-danger" *ngIf="(loginForm.controls['matkhau'].dirty || loginForm.controls['matkhau'].touched) && loginForm.hasError('required','matkhau')">*Yêu cầu nhập mật khẩu</span>
+          </div>
+          
+          <!-- Submit button -->
+          <button type="submit" [disabled]="!loginForm.valid" class="btn btn-primary btn-lg btn-block">Đăng nhập</button>
+          <a
+          *ngFor="let s of accadmin"
+          class="btn btn-primary tooltips"
+          (click)="onOpenModal(s, 'edit')"
+          data-placement="top"
+          data-original-title="Edit">Quên mật khẩu?</a>
+
+          
+        </form>
+      </div>
+    </div>
+  </div>
+</section>  
+<!-- quenmk -->
+<div
+class="modal fade"
+id="updateStudentModal"
+tabindex="-1"
+role="dialog"
+aria-labelledby="employeeEditModalLabel"
+aria-hidden="true"
+>
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="updateEmployeeModalLabel">
+        Lấy lại mật khẩu
+      </h5>
+      <button
+        type="button"
+        class="close"
+        data-dismiss="modal"
+        aria-label="Close"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="checksccForm" (ngSubmit)="checkscc()">
+        <div class="form-floating">
+          <label for="floatingTk">Tài Khoản</label>
+          <input formControlName="taikhoan" type="email" class="form-control" id="floatingTk" placeholder="Nhập Tài Khoản">
+        </div>
+        <div class="form-floating">
+          <label for="floatingScc">Số căn cước công dân</label>
+            <input formControlName="scc" type="email" class="form-control" id="floatingScc" placeholder="Nhập số căn cước">
+        </div>
+        <form #editForm="ngForm">
+          <input
+            type="hidden"
+            ngModel="{{ editAccadmin?.id }}"
+            name="id"
+            class="form-control"
+            id="id"
+            placeholder="id"
+          />
+          <input
+            type="hidden"
+            ngModel="{{ editAccadmin?.taikhoan }}"
+            name="taikhoan"
+            class="form-control"
+            id="taikhoan"
+            placeholder="taikhoan"
+          />
+          <input
+            type="hidden"
+            ngModel="{{ editAccadmin?.scc }}"
+            name="scc"
+            class="form-control"
+            id="scc"
+            placeholder=""
+          />
+          <div class="form-group">
+            <label for="matkhau">Mật khẩu</label>
+            <input
+              type="password"
+              ngModel=""
+              name="matkhau"
+              class="form-control"
+              id="matkhau"
+              placeholder="Nhập mật khẩu mới"
+            />
+          </div>
+          
+      
+        </form>  
+      <div class="modal-footer">
+        <button
+          type="button"
+          id=""
+          data-dismiss="modal"
+          class="btn btn-secondary"
+        >
+          Đóng
+        </button>
+
+        <button class="btn btn-primary" (click)="checkscc();onUpdateAdmin(editForm.value)" data-dismiss="modal">Lưu mật khẩu mới</button>
+        
+      </div>
+    </form>
+    </div>
+  </div>
+</div>
+</div>
+<!-- //////////////////////////////////////////////////////////////////////////////////////////// -->
+

@@ -1,0 +1,103 @@
+<table id="studenttable">
+<thead>
+<tr><h6>Tài nguyên môi trường</h6></tr>
+<div class="row">
+  <div class="col-lg-6 col-md-6 col-sm-6">
+    <div class="card card-stats"><tr>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-5 col-md-4">
+            <div class="icon-big text-center icon-warning">
+              <i class="nc-icon nc-circle-10 text-warning"></i>
+            </div>
+          </div>
+          <div class="col-7 col-md-8">
+            <div class="numbers">
+              <p class="card-title"><th>{{ cout1 }}</th></p>
+              <p></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <hr />
+        <div class=""><p><strong><i class="fa fa-refresh"></i><th> -Giảng Viên</th></strong></p></div>
+      </div></tr>
+    </div>
+  </div>
+  <div class="col-lg-6 col-md-6 col-sm-6">
+    <div class="card card-stats"><tr>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-5 col-md-4">
+            <div class="icon-big text-center icon-warning">
+              <i class="nc-icon nc-circle-10 text-success"></i>
+            </div>
+          </div>
+          <div class="col-7 col-md-8">
+            <div class="numbers">
+              <p class="card-title"><th>{{ cout }}</th></p>
+              <p></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <hr />
+        <div class=""><p><strong><i class="fa fa-refresh"></i><th> -Sinh Viên</th></strong></p></div>
+      </div></tr>
+    </div>
+  </div>
+  <div class="col-lg-6 col-md-6 col-sm-6">
+    <div class="card card-stats"><tr>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-5 col-md-4">
+            <div class="icon-big text-center icon-warning">
+              <i class="nc-icon nc-money-coins text-primary"></i>
+            </div>
+          </div>
+          <div class="col-7 col-md-8">
+            <div class="numbers">
+              <p class="card-title"><th>{{ total | currency : "VND" }}</th></p>
+              <p></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <hr />
+        <div class=""><p><strong><i class="fa fa-refresh"></i><th> -Thu</th></strong></p></div>
+      </div></tr>
+    </div>
+  </div>
+  <div class="col-lg-6 col-md-6 col-sm-6">
+    <div class="card card-stats"><tr>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-5 col-md-4">
+            <div class="icon-big text-center icon-warning">
+              <i class="nc-icon nc-money-coins text-danger"></i>
+            </div>
+          </div>
+          <div class="col-7 col-md-8">
+            <div class="numbers">
+              <p class="card-title"><th>{{ total1 | currency : "VND" }}</th></p>
+              <p></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <hr />
+        <div class=""><p><strong><i class="fa fa-refresh"></i><th> -Chi</th></strong></p></div>
+      </div></tr>
+    </div>
+  </div>
+</div>
+
+</thead>
+</table>
+<button (click)="printReport()" type="button" class="btn btn-success">
+  Print EXCEL
+</button>

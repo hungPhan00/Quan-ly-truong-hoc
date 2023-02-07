@@ -1,0 +1,268 @@
+
+<div class="row" class="container" id="maincontainer">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">Danh sách tài khoản kế toán</h4>
+          <form class="form-inline my-2 my-lg-0">
+          </form>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <button
+              type="button"
+              class="btn btn-primary"
+              (click)="onOpenModal(null, 'add')"
+            >
+              Tài khoản mới</button
+            ><span class="sr-only">(current)</span>
+            <a [routerLink]="['/loginkt']"><button
+              type="button"
+              class="btn btn-success"
+            >
+              Đăng nhập</button
+            ></a>
+            <table class="table" id="studenttable">
+              <thead class="text-primary">
+                <tr>
+                  <th>ID</th>
+                  <th>Tài khoản</th>
+                  <th>Mật khẩu</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let s of accketoan">
+                  <td>{{ s.id }}</td>
+                  <td>{{ s.taikhoan }}</td>
+                  <td>{{ s.matkhau }}</td>               
+                  <td>
+                    <div class="float-right btn-group btn-group-sm">
+                      <a
+                        (click)="onOpenModal(s, 'edit')"
+                        class="btn btn-primary tooltips"
+                        data-placement="top"
+                        data-original-title="Edit"
+                        ><i class="fa fa-pencil"></i>
+                      </a>
+                      <a
+                        (click)="onOpenModal(s, 'delete')"
+                        class="btn btn-secondary tooltips"
+                        data-placement="top"
+                        data-original-title="Delete"
+                        ><i class="fa fa-times"></i
+                      ></a>
+                    </div>
+                  </td>
+                </tr>
+                <script src="script.js" defer></script>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Add student Modal -->
+  <div
+    class="modal fade"
+    id="addStudentModal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="addEmployeeModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addEmployeeModalLabel">Thêm tài khoản kế toán</h5>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form #addForm="ngForm" (ngSubmit)="onAddAccketoan(addForm)">
+            <div class="form-group">
+              <label for="taikhoan">Tài khoản</label>
+              <input
+                type="text"
+                ngModel
+                name="taikhoan"
+                class="form-control"
+                id="taikhoan"
+                placeholder="Nhập Tài khoản"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="matkhau">Mật khẩu</label>
+              <input
+                type="text"
+                ngModel
+                name="matkhau"
+                class="form-control"
+                id="matkhau"
+                placeholder="Nhập Mật khẩu"
+                required
+              />
+            </div>
+
+            <div class="modal-footer">
+              <button
+                type="button"
+                id="add-student-form"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Đóng
+              </button>
+              <button
+                [disabled]="addForm.invalid"
+                type="submit"
+                class="btn btn-primary"
+              >
+                Lưu tài khoản
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- edit -->
+  <div
+    class="modal fade"
+    id="updateStudentModal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="employeeEditModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="updateEmployeeModalLabel">
+            Chỉnh sửa thông tin: {{ editAccketoan?.taikhoan }}
+          </h5>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form #editForm="ngForm">
+            <div class="form-group">
+              <label for="taikhoan">Tài khoản</label>
+              <input
+                type="text"
+                ngModel="{{ editAccketoan?.taikhoan }}"
+                name="taikhoan"
+                class="form-control"
+                id="taikhoan"
+                aria-describedby="emailHelp"
+                placeholder="Nhập Tài khoản"
+              />
+            </div>
+            <input
+              type="hidden"
+              ngModel="{{ editAccketoan?.id }}"
+              name="id"
+              class="form-control"
+              id="id"
+              placeholder="id"
+            />
+            <div class="form-group">
+              <label for="matkhau">Mật khẩu</label>
+              <input
+                type="text"
+                ngModel="{{ editAccketoan?.matkhau }}"
+                name="matkhau"
+                class="form-control"
+                id="matkhau"
+                placeholder="Nhập Mật khẩu"
+              />
+            </div>
+            
+            <div class="modal-footer">
+              <button
+                type="button"
+                id=""
+                data-dismiss="modal"
+                class="btn btn-secondary"
+              >
+                Đóng
+              </button>
+              <button
+                (click)="onUpdateAccketoan(editForm.value)"
+                data-dismiss="modal"
+                class="btn btn-primary"
+              >
+                Lưu thay đổi
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- delet -->
+  <div
+    class="modal fade"
+    id="deleteStudentModal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="deleteModelLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="deleteModelLabel">Xóa tài khoản</h5>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>
+            Bạn có chắc muốn xóa tài khoản {{ deleteAccketoans?.taikhoan }}?
+          </p>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">
+              Không
+            </button>
+            <button
+              (click)="onDeleteAccketoan(deleteAccketoans.id)"
+              class="btn btn-danger"
+              data-dismiss="modal"
+            >
+              Có
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- nofi -->
+  <div *ngIf="accketoan?.length == 0" class="col-lg-12 col-md-12 col-xl-12">
+    <div class="alert alert-info" role="alert">
+      <h4 class="alert-heading">KHÔNG TÌM THẤY TÀI KHOẢN</h4>
+    </div>
+  </div>
+
+  <accteacher></accteacher>
+  <accadmin></accadmin>
+  

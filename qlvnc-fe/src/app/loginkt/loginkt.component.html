@@ -1,0 +1,38 @@
+<section class="vh-100">
+    <div class="container py-5 h-100">
+      <div class="row d-flex align-items-center justify-content-center h-100">
+        <div class="col-md-8 col-lg-7 col-xl-6">
+          <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
+            class="img-fluid" alt="Phone image">
+        </div>
+        <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+          <form [formGroup]="loginForm" (ngSubmit)="login()">
+            <div class="col-md-6 col-lg-5 d-none d-md-block">
+              <a href="" class="simple-text logo-mini">
+                <div class="logo-image-small">
+                  <img src=".\assets\img\riam-logo.png" />
+                </div>
+              </a>
+            </div>
+            <h2><strong>Đăng nhập Kế Toán</strong></h2>
+            <div class="form-floating mb-4">
+              <label for="floatingInput">Tài Khoản</label>
+              <input formControlName="taikhoan" type="email" class="form-control" id="floatingInput" placeholder="Nhập Tài Khoản">
+              <br>
+              <span class="text-danger" *ngIf="(loginForm.controls['taikhoan'].dirty || loginForm.controls['taikhoan'].touched) && loginForm.hasError('required','taikhoan')">*Yêu cầu nhập tài khoản</span>
+            </div>
+            <div class="form-floating">
+              <label for="floatingPassword">Mật khẩu</label>
+              <input formControlName="matkhau" type="password" class="form-control" id="floatingPassword" placeholder="Nhập Mật khẩu">
+              <br>
+              <span class="text-danger" *ngIf="(loginForm.controls['matkhau'].dirty || loginForm.controls['matkhau'].touched) && loginForm.hasError('required','matkhau')">*Yêu cầu nhập mật khẩu</span>
+            </div>
+  
+            <!-- Submit button -->
+            <button type="submit" [disabled]="!loginForm.valid" class="btn btn-primary btn-lg btn-block">Đăng nhập</button>
+  
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>

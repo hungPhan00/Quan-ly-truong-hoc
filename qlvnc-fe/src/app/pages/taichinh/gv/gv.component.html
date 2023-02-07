@@ -1,0 +1,329 @@
+<div class="row" class="container" id="maincontainer1">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">Danh sách Giảng viên</h4>
+          <form class="form-inline my-2 my-lg-0">
+            <input
+              type="search"
+              (ngModelChange)="searchTeacher(key.value)"
+              #key="ngModel"
+              ngModel
+              name="key"
+              id="searchName"
+              class="form-control mr-sm-2"
+              placeholder="Search ..."
+              required
+            />
+          </form>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            
+            <button (click)="printReport1()" type="button" class="btn btn-success">
+              Print EXCEL
+            </button>
+            <button (click)="printpdf()" type="button" class="btn btn-warning">
+              Print PDF
+            </button>
+            <table class="table" id="studenttable1">
+              <thead class="text-primary">
+                <tr>
+                  <th>ID</th>
+                <th>Tên</th>
+                <th>Mã Giảng viên</th>
+                <th>Chức vụ</th>
+                <th>Khoa</th>
+                <th>Lương/tháng</th>
+                <th>Số tháng làm việc</th>
+                <th>Lương đã trả</th>
+                <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let t of teacher">
+                  <td>{{ t.id }}</td>
+                  <td>{{ t.name }}</td>
+                  <td>{{ t.magv }}</td>
+                  <td>{{ t.chucvu  }}</td>
+                  <td>{{ t.khoa  }}</td>
+                  <td>{{ t.luong |currency: "VND"}}</td>
+                  <td>{{ t.sothang }}</td>
+                  <td>{{t.luongdatra|currency: "VND"}}</td>
+                  <td>
+                    <div class="float-right btn-group btn-group-sm">
+                      <a
+                        (click)="onOpenModal1(t, 'edit')"
+                        class="btn btn-primary tooltips"
+                        data-placement="top"
+                        data-original-title="Edit"
+                        ><i class="fa fa-pencil"></i>
+                      </a>
+                      <a
+                        (click)="onOpenModal1(t, 'delete')"
+                        class="btn btn-secondary tooltips"
+                        data-placement="top"
+                        data-original-title="Delete"
+                        ><i class="fa fa-times"></i
+                      ></a>
+                    </div>
+                  </td>
+                </tr>
+                <script src="script.js" defer></script>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- edit -->
+  <div
+  class="modal fade"
+  id="updateStudentModal1"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="employeeEditModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="updateEmployeeModalLabel">
+          Chỉnh sửa thông tin: {{ editTeacher?.name }}
+        </h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form #editForm="ngForm">
+          <div class="form-group">
+            <label for="name">Tên</label>
+            <input
+              type="text"
+              ngModel="{{ editTeacher?.name }}"
+              name="name"
+              class="form-control"
+              id="name"
+              aria-describedby="emailHelp"
+              placeholder="Name"
+            />
+          </div>
+          <input
+            type="hidden"
+            ngModel="{{ editTeacher?.id }}"
+            name="id"
+            class="form-control"
+            id="id"
+            placeholder="id"
+          />
+          <div class="form-group">
+            <label for="magv">Mã giảng viên</label>
+            <input
+              type="text"
+              ngModel="{{ editTeacher?.magv }}"
+              name="magv"
+              class="form-control"
+              id="magv"
+              placeholder="Mã giảng viên"
+            />
+          </div>
+          <div class="form-group">
+            <label for="birthday">Ngày Sinh</label>
+            <input
+              type="text"
+              ngModel="{{ editTeacher?.birthday }}"
+              name="birthday"
+              class="form-control"
+              id="birthday"
+              placeholder="YYYY-MM-DD"
+            />
+          </div>
+          <div class="form-group">
+            <label for="chucvu">Chức vụ</label>
+            <input
+              type="text"
+              ngModel="{{ editTeacher?.chucvu }}"
+              name="chucvu"
+              class="form-control"
+              id="chucvu"
+              placeholder="Chức vụ"
+            />
+          </div>
+          <div class="form-group">
+            <label for="khoa">Khoa</label>
+            <input
+              type="text"
+              ngModel="{{ editTeacher?.khoa }}"
+              name="khoa"
+              class="form-control"
+              id="khoa"
+              placeholder="Nhập khoa"
+            />
+          </div>
+          <div class="form-group">
+            <label for="sdt">SĐT</label>
+            <input
+              type="text"
+              ngModel="{{ editTeacher?.sdt }}"
+              name="sdt"
+              class="form-control"
+              id="sdt"
+              placeholder="Số điện thoại"
+            />
+          </div>
+          <div class="form-group">
+            <label for="gmail">Gmail</label>
+            <input
+              type="text"
+              ngModel="{{ editTeacher?.gmail }}"
+              name="gmail"
+              class="form-control"
+              id="gmail"
+              placeholder="gmail"
+            />
+          </div>
+          <!-- <div class="form-group">
+              <label for="tinhtrang">Tình Trạng</label>
+              <input
+                type="text"
+                ngModel="{{ editStudent?.tinhtrang }}"
+                name="tinhtrang"
+                class="form-control"
+                id="tinhtrang"
+                placeholder="tinhtrang"
+              />
+            </div> -->
+
+          <div class="form-check-input">
+            <pre>     <input
+                class="form-check-input"
+                type="checkbox"
+                ngModel ="{{ editTeacher?.tinhtrang }}"
+                name="tinhtrang"
+                id="tinhtrangedit"
+              /><label class="form-check-label" for="tinhtrangedit">Đang Làm việc</label></pre>
+          </div>
+          <br />
+          <br />
+          <div class="form-group">
+            <label for="imgurl">Image URL</label>
+            <input
+              type="text"
+              ngModel="{{ editTeacher?.imgurl }}"
+              name="imgurl"
+              class="form-control"
+              id="imgurl"
+              placeholder="Image URL"
+            />
+          </div>
+          <div class="form-group">
+            <label for="luong">Lương/tháng</label>
+            <input
+              type="text"
+              ngModel="{{ editTeacher?.luong }}"
+              name="luong"
+              class="form-control"
+              id="luong"
+              placeholder="Nhập Lương"
+            />
+          </div>
+          <div class="form-group">
+            <label for="sothang">Số tháng làm việc</label>
+            <input
+              type="text"
+              ngModel="{{ editTeacher?.sothang }}"
+              name="sothang"
+              class="form-control"
+              id="sothang"
+              placeholder="Nhập Số tháng làm việc"
+            />
+          </div>
+          <div class="form-group">
+            <label for="luongdatra">Lương đã trả</label>
+            <input
+              type="text"
+              ngModel="{{ editTeacher?.luongdatra }}"
+              name="luongdatra"
+              class="form-control"
+              id="luongdatra"
+              placeholder="Nhập Lương đã trả"
+            />
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              id=""
+              data-dismiss="modal"
+              class="btn btn-secondary"
+            >
+              Đóng
+            </button>
+            <button
+              (click)="onUpdateTeacher(editForm.value)"
+              data-dismiss="modal"
+              class="btn btn-primary"
+            >
+              Lưu thay đổi
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+  <!-- delet -->
+  <div
+    class="modal fade"
+    id="deleteStudentModal1"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="deleteModelLabel1"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="deleteModelLabel">Xóa giáo viên</h5>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>
+            Bạn có chắc muốn xóa Giảng viên {{ deleteTeachers?.name }}?
+          </p>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">
+              No
+            </button>
+            <button
+              (click)="onDeleteTeacher(deleteTeachers.id)"
+              class="btn btn-danger"
+              data-dismiss="modal"
+            >
+              Yes
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- nofi -->
+  <div *ngIf="teacher?.length == 0" class="col-lg-12 col-md-12 col-xl-12">
+    <div class="alert alert-info" role="alert">
+      <h4 class="alert-heading">KHÔNG TÌM THẤY Giảng viên</h4>
+    </div>
+  </div>
